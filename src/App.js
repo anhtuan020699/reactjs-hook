@@ -4,25 +4,20 @@ import { useState } from "react";
 
 
 
+const gifts =['one' ,'two' ,'three']
 
 function App() {
-
-  const [info , setInfo ] = useState({
-    name : 'Nguyen Van Anh Tuan',
-    age: 22
-  })
-  const handleUpdate = () => {
-    setInfo({
-         ...info,
-         bio: 'yeu mau hong'
-    })
+  const [gift, setGift] = useState()
+  const randomGift = () =>{
+    const index = Math.floor(Math.random() * gifts.length)
+      setGift(gifts[index])
   }
+  
   return (
     
     <div style ={{padding:50}}>
-     <h1 >{JSON.stringify(info)}</h1>
-     
-     <button onClick={handleUpdate}> Update In4</button>
+      <h1>{ gift || 'Chưa có phần thưởng' }</h1>  
+      <button onClick ={randomGift}>Lấy thưởng</button>
     </div>
   );
 }
